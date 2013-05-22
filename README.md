@@ -1,7 +1,7 @@
 MachOView
 =========
 
-[x] import machoview code from http://sourceforge.net/projects/machoview/
-[x] add llvm headers
-[x] handle the crash problem
+* import machoview code from http://sourceforge.net/projects/machoview/
+* add llvm headers
+* handle the crash problem
 
