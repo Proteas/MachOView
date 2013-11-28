@@ -597,10 +597,12 @@ static AsmFootPrint const fastStubHelperHelperARM =
   char *                      ot_object_addr = (char *)mach_header;
   uint32_t                    ot_object_size = imageSize;
 
-  LLVMDisasmContextRef        ot_arm_dc = (qflag && mach_header->cputype == CPU_TYPE_ARM ? create_arm_llvm_disassembler() : NULL);
-  LLVMDisasmContextRef        ot_thumb_dc = (qflag && mach_header->cputype == CPU_TYPE_ARM ? create_thumb_llvm_disassembler() : NULL);
-  LLVMDisasmContextRef        ot_i386_dc = (qflag && mach_header->cputype == CPU_TYPE_I386 ? create_i386_llvm_disassembler() : NULL);
-  LLVMDisasmContextRef        ot_x86_64_dc = (qflag && mach_header->cputype == CPU_TYPE_X86_64 ? create_x86_64_llvm_disassembler() : NULL);
+  //--Begin: : Edit by Proteas
+  LLVMDisasmContextRef        ot_arm_dc = NULL/*(qflag && mach_header->cputype == CPU_TYPE_ARM ? create_arm_llvm_disassembler() : NULL)*/;
+  LLVMDisasmContextRef        ot_thumb_dc = NULL/*(qflag && mach_header->cputype == CPU_TYPE_ARM ? create_thumb_llvm_disassembler() : NULL)*/;
+  LLVMDisasmContextRef        ot_i386_dc = NULL/*(qflag && mach_header->cputype == CPU_TYPE_I386 ? create_i386_llvm_disassembler() : NULL)*/;
+  LLVMDisasmContextRef        ot_x86_64_dc = NULL/*(qflag && mach_header->cputype == CPU_TYPE_X86_64 ? create_x86_64_llvm_disassembler() : NULL)*/;
+  //--End 
   
   vector<symbol> sorted_symbols;
   set<uint64_t> thumbSymbols;

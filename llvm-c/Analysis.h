@@ -25,12 +25,6 @@
 extern "C" {
 #endif
 
-/**
- * @defgroup LLVMCAnalysis Analysis
- * @ingroup LLVMC
- *
- * @{
- */
 
 typedef enum {
   LLVMAbortProcessAction, /* verifier will print to stderr and abort() */
@@ -53,10 +47,6 @@ LLVMBool LLVMVerifyFunction(LLVMValueRef Fn, LLVMVerifierFailureAction Action);
    Useful for debugging. */
 void LLVMViewFunctionCFG(LLVMValueRef Fn);
 void LLVMViewFunctionCFGOnly(LLVMValueRef Fn);
-
-/**
- * @}
- */
 
 #ifdef __cplusplus
 }

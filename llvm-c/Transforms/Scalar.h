@@ -25,13 +25,6 @@
 extern "C" {
 #endif
 
-/**
- * @defgroup LLVMCTransformsScalar Scalar transformations
- * @ingroup LLVMCTransforms
- *
- * @{
- */
-
 /** See llvm::createAggressiveDCEPass function. */
 void LLVMAddAggressiveDCEPass(LLVMPassManagerRef PM);
 
@@ -123,9 +116,6 @@ void LLVMAddTypeBasedAliasAnalysisPass(LLVMPassManagerRef PM);
 /** See llvm::createBasicAliasAnalysisPass function */
 void LLVMAddBasicAliasAnalysisPass(LLVMPassManagerRef PM);
 
-/**
- * @}
- */
 
 #ifdef __cplusplus
 }

@@ -25,12 +25,6 @@
 extern "C" {
 #endif
 
-/**
- * @defgroup LLVMCBitReader Bit Reader
- * @ingroup LLVMC
- *
- * @{
- */
 
 /* Builds a module from the bitcode in the specified memory buffer, returning a
    reference to the module via the OutModule parameter. Returns 0 on success.
@@ -64,10 +58,6 @@ LLVMBool LLVMGetBitcodeModuleProviderInContext(LLVMContextRef ContextRef,
 LLVMBool LLVMGetBitcodeModuleProvider(LLVMMemoryBufferRef MemBuf,
                                       LLVMModuleProviderRef *OutMP,
                                       char **OutMessage);
-
-/**
- * @}
- */
 
 #ifdef __cplusplus
 }

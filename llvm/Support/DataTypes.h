@@ -1,4 +1,3 @@
-/* include/llvm/Support/DataTypes.h.  Generated from DataTypes.h.in by configure.  */
 /*===-- include/Support/DataTypes.h - Define fixed size types -----*- C -*-===*\
 |*                                                                            *|
 |*                     The LLVM Compiler Infrastructure                       *|
@@ -22,7 +21,7 @@
 
 /* Please leave this file C-compatible. */
 
-/* Please keep this file in sync with DataTypes.h.cmake */
+/* Please keep this file in sync with DataTypes.h.in */
 
 #ifndef SUPPORT_DATATYPES_H
 #define SUPPORT_DATATYPES_H
@@ -31,7 +30,7 @@
 #define HAVE_INTTYPES_H 1
 #define HAVE_STDINT_H 1
 #define HAVE_UINT64_T 1
-/* #undef HAVE_U_INT64_T */
+#define HAVE_U_INT64_T 1
 
 #ifdef __cplusplus
 #include <cmath>
@@ -41,16 +40,20 @@
 
 #ifndef _MSC_VER
 
+#define __STDC_LIMIT_MACROS
+#define __STDC_CONSTANT_MACROS
+
 /* Note that this header's correct operation depends on __STDC_LIMIT_MACROS
    being defined.  We would define it here, but in order to prevent Bad Things
    happening when system headers or C++ STL headers include stdint.h before we
    define it here, we define it on the g++ command line (in Makefile.rules). */
 #if !defined(__STDC_LIMIT_MACROS)
-# define __STDC_LIMIT_MACROS
+# error "Must #define __STDC_LIMIT_MACROS before #including Support/DataTypes.h"
 #endif
 
 #if !defined(__STDC_CONSTANT_MACROS)
-# define __STDC_CONSTANT_MACROS
+# error "Must #define __STDC_CONSTANT_MACROS before " \
+        "#including Support/DataTypes.h"
 #endif
 
 /* Note that <inttypes.h> includes <stdint.h>, if this is a C99 system. */
@@ -77,6 +80,18 @@ typedef u_int64_t uint64_t;
 #else
 # error "Don't have a definition for uint64_t on this platform"
 #endif
+#endif
+
+#ifdef _OpenBSD_
+#define INT8_MAX 127
+#define INT8_MIN -128
+#define UINT8_MAX 255
+#define INT16_MAX 32767
+#define INT16_MIN -32768
+#define UINT16_MAX 65535
+#define INT32_MAX 2147483647
+#define INT32_MIN -2147483648
+#define UINT32_MAX 4294967295U
 #endif
 
 #else /* _MSC_VER */
